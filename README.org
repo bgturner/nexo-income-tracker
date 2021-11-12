@@ -1,0 +1,3 @@
+* Nexo Income Tracker
+
+  An Electron app to help calculate cost-basis, income, and profit from crypto transactions on Nexo.
