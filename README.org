@@ -1,6 +1,10 @@
 * Nexo Income Tracker
 
-  An Electron app to help calculate cost-basis, income, and profit from crypto transactions on Nexo.
+  An [[https://www.electronjs.org/][Electron]] app to help calculate cost-basis, income, and profit from crypto transactions on [[https://www.electronjs.org/][Nexo]].
+
+  This is equal parts "useful tool" and a learning sandbox for me to better understand building an app using Electron.
+
+  Because I'd like to also learn some addition tooling, especially [[https://tailwindcss.com/][TailwindCSS]], I've forked the [[https://github.com/Sanan4li/React-Electron-TailwindCSS-Boilerplate.git][React-Electron-TailwindCSS-Boilerplate]] repo so that I have at least one opinionated starting point.
 
 * Tasks
 ** DONE Load a Nexo CSV Export into the renderer
