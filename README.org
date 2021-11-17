@@ -1,3 +1,16 @@
 * Nexo Income Tracker
 
   An Electron app to help calculate cost-basis, income, and profit from crypto transactions on Nexo.
+
+* Tasks
+** DONE Load a Nexo CSV Export into the renderer
+   CLOSED: [2021-11-16 Tue 17:30]
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2021-11-16 Tue 17:30]
+   :END:
+   - It's awesome when an upstream project helps. I learned a bit while trying to handle my own form submission. At the end of the day, the [[https://github.com/nzambello/react-csv-reader][react-csv-reader]] project abstracts a bunch of things for a clean DX!
+** TODO Write a journal to a =.ledger= file
+** TODO Calculate Cost Basis of assets
+** TODO Calculate Income of Assets
+** TODO Calculate Profit of Asset Sales
+** TODO Option to read from a =.ledger= file on disk
