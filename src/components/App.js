@@ -4,6 +4,17 @@ import CSVReader from 'react-csv-reader'
 import '../styles/main.css'
 function App() {
 
+  let [transactions, setTransactions] = useState([{
+    transaction: '',
+    date___time: '',
+    amount: '',
+    currency: '',
+    details: '',
+    outstanding_loan: '',
+    type: '',
+    usd_equivalent: '',
+  }]);
+
   const papaparseOptions = {
     header: true,
     dynamicTyping: true,
@@ -15,6 +26,7 @@ function App() {
   }
 
   let handleCsvUpload = (data) => {
+    setTransactions(data)
     console.log(data);
   }
 
@@ -30,7 +42,7 @@ function App() {
       <div id="csv-file-uploader" className="p-4">
         <div className="p-4 border">
           <CSVReader
-            cssClass="csv-reader-input"
+            cssClass="csv-reader-input flex space-x-4 items-align items-center"
             label="Upload Nexo Transactions"
             onFileLoaded={handleCsvUpload}
             onError={handleCsvUploadError}
@@ -40,7 +52,20 @@ function App() {
           />
         </div>
       </div>
-      <div id="nexo-transactions"></div>
+      <div id="nexo-transactions" className="p-4">
+        {transactions.map(t =>
+          <tr>
+            <td>{t.transaction}</td>
+            <td>{t.date___time}</td>
+            <td>{t.amount}</td>
+            <td>{t.currency}</td>
+            <td>{t.details}</td>
+            <td>{t.outstanding_loan}</td>
+            <td>{t.type}</td>
+            <td>{t.usd_equivalent}</td>
+          </tr>
+        )}
+      </div>
     </div>
   )
 }
