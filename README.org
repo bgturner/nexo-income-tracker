@@ -13,6 +13,35 @@
    - State "DONE"       from "TODO"       [2021-11-16 Tue 17:30]
    :END:
    - It's awesome when an upstream project helps. I learned a bit while trying to handle my own form submission. At the end of the day, the [[https://github.com/nzambello/react-csv-reader][react-csv-reader]] project abstracts a bunch of things for a clean DX!
+** TODO Transform CSV to JSON transactions
+   - Should nudge this closer to an actual Double Entry accounting journal
+     - One *transaction* for each line in the CSV file
+     - Each transaction contains 2 or more *entries*
+     - Each transaction needs a UUID generated from the line of the CSV file to help with identifying duplicates
+
+
+   #+begin_src json
+     {
+         id: 'xxxyyyzzz',
+         csvId: 'aaa-bbb-ccc-ddd',
+         date: '2021-11-12 15:45:25',
+         type, 'Interest',
+         details: 'approved / BTC Interest Earned',
+         usdEquivalent: 1.8643086360035,
+         entries: [
+             {
+                 account: 'Assets:Current Assets:Nexo:BTC',
+                 currency: 'BTC',
+                 amount: 0.00002878,
+             },
+             {
+                 account: 'Income:Interest:Nexo:BTC',
+                 currency: 'USD',
+                 amount: 1.8643086360035,
+             },
+         ],
+     }
+   #+end_src
 ** TODO Write a journal to a =.ledger= file
 ** TODO Calculate Cost Basis of assets
 ** TODO Calculate Income of Assets
