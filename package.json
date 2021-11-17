@@ -45,7 +45,9 @@
     "watch-css": "npx tailwindcss build -i src/styles/index.css -o src/styles/main.css --watch",
     "build-css": "npx tailwindcss build  -o src/styles/main.css",
     "package": "npm run build",
-    "postpackage": "electron-packager ./ --out=./builds"
+    "postpackage": "electron-packager ./ --out=./builds",
+    "test:watch": "jest --watch",
+    "test": "jest"
   },
   "dependencies": {
     "@craco/craco": "^6.3.0",
@@ -67,6 +69,7 @@
     "electron-packager": "^15.3.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.3.1",
     "mini-css-extract-plugin": "^2.2.0",
     "postcss": "^8.3.8",
     "postcss-import": "^14.0.2",
