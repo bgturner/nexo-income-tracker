@@ -55,7 +55,6 @@ test("The date___time property is converted to the date property.", () => {
 test.todo("The entries property has two entries."), () => {};
 test.todo("The entry for the income account has the correct values."), () => {};
 test.todo("The entry for the asset account has the correct values."), () => {};
-test.todo("The usd_equivalent is converted to a float."), () => {};
 test("The transaction property is converted to the transactionId property.", () => {
   expect(convertedInterestTransaction).toHaveProperty("transactionId");
   expect(convertedInterestTransaction).not.toHaveProperty("transaction");
@@ -68,6 +67,14 @@ test("The csvFingerprint is correctly generated from the original object.", () =
   expect(convertedInterestTransaction).toHaveProperty("csvFingerprint");
   expect(convertedInterestTransaction.csvFingerprint).toEqual(
     "b28c94b2195c8ed259f0b415aaee3f39b0b2920a4537611499fa044956917a21"
+  );
+});
+
+test("The usd_equivalent is converted to a float.", () => {
+  expect(convertedInterestTransaction).toHaveProperty("usdEquivalent");
+  expect(convertedInterestTransaction).not.toHaveProperty("usd_equivalent");
+  expect(convertedInterestTransaction.usdEquivalent).toBeCloseTo(
+    nexoJournalTransactions.interest.usdEquivalent
   );
 });
 
