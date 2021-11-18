@@ -51,13 +51,17 @@ test("The date___time property is converted to the date property.", () => {
     nexoCsvReaderTransactions.interest.date___time
   );
 });
-test.todo(
-  "The transaction property is conveted to the transactionId property."
-),
-  () => {};
 test.todo("The entries property has two entries."), () => {};
 test.todo("The entry for the income account has the correct values."), () => {};
 test.todo("The entry for the asset account has the correct values."), () => {};
 test.todo("The csvId is correctly generated from the original object."),
   () => {};
 test.todo("The usd_equivalent is converted to a float."), () => {};
+test("The transaction property is converted to the transactionId property.", () => {
+  expect(convertedInterestTransaction).toHaveProperty("transactionId");
+  expect(convertedInterestTransaction).not.toHaveProperty("transaction");
+  expect(convertedInterestTransaction.transactionId).toEqual(
+    nexoCsvReaderTransactions.interest.transaction
+  );
+});
+
