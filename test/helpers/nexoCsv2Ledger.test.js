@@ -1,3 +1,5 @@
+const convertInterest = require("../../src/helpers/nexoCsv2Ledger.js");
+
 /**
  * Follows the JSON structure that `react-csv-reader` will produce.
  * The object properties follow the CSV headers that nexo uses.
@@ -38,8 +40,17 @@ const nexoJournalTransactions = {
   },
 };
 
-test.todo("The date___time property is converted to the date property."),
-  () => {};
+const convertedInterestTransaction = convertInterest(
+  nexoCsvReaderTransactions.interest
+);
+
+test("The date___time property is converted to the date property.", () => {
+  expect(convertedInterestTransaction).toHaveProperty("date");
+  expect(convertedInterestTransaction).not.toHaveProperty("date___time");
+  expect(convertedInterestTransaction.date).toEqual(
+    nexoCsvReaderTransactions.interest.date___time
+  );
+});
 test.todo(
   "The transaction property is conveted to the transactionId property."
 ),
