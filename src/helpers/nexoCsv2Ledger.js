@@ -1,8 +1,5 @@
 const hash = require("./hash");
-
-function getUsdAmount(amt) {
-  return parseFloat(amt.replace(/\$/g, ""));
-}
+const getUsdAmount = require("./getUsdAmount");
 
 function convertInterest(t) {
   return {
