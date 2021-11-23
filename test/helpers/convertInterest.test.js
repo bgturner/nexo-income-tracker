@@ -1,4 +1,4 @@
-const convertInterest = require("../../src/helpers/nexoCsv2Ledger.js");
+const convertInterest = require("../../src/helpers/convertInterest.js");
 
 /**
  * Follows the JSON structure that `react-csv-reader` will produce.
