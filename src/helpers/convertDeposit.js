@@ -1,15 +1,8 @@
-const hash = require("./hash");
 const getUsdAmount = require("./getUsdAmount");
+const convertTransaction = require("./convertTransactionBase.js");
 
-function convertDeposit(t) {
-  return {
-    date: t.date___time,
-    transactionId: t.transaction,
-    csvFingerprint: hash(t),
-    usdEquivalent: getUsdAmount(t.usd_equivalent),
-    transactionType: 'Deposit',
-    details: t.details,
-    entries: [
+function depositEntries(t) {
+  return [
       {
         account: `Assets:Current Assets:Nexo:${t.currency}`,
         currency: t.currency,
@@ -20,7 +13,9 @@ function convertDeposit(t) {
         currency: "USD",
         amount: getUsdAmount(t.usd_equivalent) * -1,
       },
-    ],
-  };
+    ];
 }
+
+const convertDeposit = convertTransaction("Deposit", depositEntries);
+
 module.exports = convertDeposit;

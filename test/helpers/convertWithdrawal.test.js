@@ -39,7 +39,7 @@ const desiredT = {
     {
       account: "Equity:Withdrawals:Nexo:BTC",
       currency: "USD",
-      amount: -1243.0833,
+      amount: 1243.0833,
     },
   ],
 };
