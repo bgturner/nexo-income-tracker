@@ -1,44 +1,40 @@
-import React, { useState } from 'react'
-import CSVReader from 'react-csv-reader'
+import React, { useState } from "react";
+import CSVReader from "react-csv-reader";
 
-import '../styles/main.css'
+import "../styles/main.css";
 function App() {
-
-  let [transactions, setTransactions] = useState([{
-    transaction: '',
-    date___time: '',
-    amount: '',
-    currency: '',
-    details: '',
-    outstanding_loan: '',
-    type: '',
-    usd_equivalent: '',
-  }]);
+  let [transactions, setTransactions] = useState([
+    {
+      transaction: "",
+      date___time: "",
+      amount: "",
+      currency: "",
+      details: "",
+      outstanding_loan: "",
+      type: "",
+      usd_equivalent: "",
+    },
+  ]);
 
   const papaparseOptions = {
     header: true,
     dynamicTyping: true,
     skipEmptyLines: true,
-    transformHeader: header =>
-      header
-        .toLowerCase()
-        .replace(/\W/g, '_')
-  }
+    transformHeader: (header) => header.toLowerCase().replace(/\W/g, "_"),
+  };
 
   let handleCsvUpload = (data) => {
-    setTransactions(data)
+    setTransactions(data);
     console.log(data);
-  }
+  };
 
   let handleCsvUploadError = (error) => {
     console.log(error);
-  }
+  };
 
   return (
     <div className="mt-20">
-      <h1 className="text-3xl text-center">
-        Nexo Income Tracker
-      </h1>
+      <h1 className="text-3xl text-center">Nexo Income Tracker</h1>
       <div id="csv-file-uploader" className="p-4">
         <div className="p-4 border">
           <CSVReader
@@ -53,7 +49,7 @@ function App() {
         </div>
       </div>
       <div id="nexo-transactions" className="p-4">
-        {transactions.map(t =>
+        {transactions.map((t) => (
           <tr>
             <td>{t.transaction}</td>
             <td>{t.date___time}</td>
@@ -64,10 +60,10 @@ function App() {
             <td>{t.type}</td>
             <td>{t.usd_equivalent}</td>
           </tr>
-        )}
+        ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
