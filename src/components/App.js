@@ -48,20 +48,22 @@ function App() {
           />
         </div>
       </div>
-      <div id="nexo-transactions" className="p-4">
-        {transactions.map((t) => (
-          <tr>
-            <td>{t.transaction}</td>
-            <td>{t.date___time}</td>
-            <td>{t.amount}</td>
-            <td>{t.currency}</td>
-            <td>{t.details}</td>
-            <td>{t.outstanding_loan}</td>
-            <td>{t.type}</td>
-            <td>{t.usd_equivalent}</td>
-          </tr>
-        ))}
-      </div>
+      <table id="nexo-transactions" className="p-4">
+        <tbody>
+          {transactions.map((t) => (
+            <tr key={t.transaction}>
+              <td>{t.transaction}</td>
+              <td>{t.date___time}</td>
+              <td>{t.amount}</td>
+              <td>{t.currency}</td>
+              <td>{t.details}</td>
+              <td>{t.outstanding_loan}</td>
+              <td>{t.type}</td>
+              <td>{t.usd_equivalent}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
