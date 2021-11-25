@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CspHtmlWebpackPlugin = require('csp-html-webpack-plugin');
 const { spawn } = require('child_process')
 
 // Any directories you will be adding code/files into, need to be added to this array so webpack will pick them up
@@ -34,6 +35,12 @@ module.exports = {
   target: 'electron-renderer',
   plugins: [
     new HtmlWebpackPlugin(),
+    new CspHtmlWebpackPlugin({
+      'base-uri': "'self'",
+      'object-src': "'none'",
+      'script-src': ["'unsafe-inline'", "'self'"],
+      'style-src': ["'unsafe-inline'", "'self'"]
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
     })
